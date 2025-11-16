@@ -1,0 +1,6 @@
+name: pylearn
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+prefix: /home/wlk/anaconda3/envs/pylearn
