@@ -1,4 +1,7 @@
 #Python - 动态类型 vs C++ - 静态类型
+from cgi import print_form
+
+
 x = 10;       #自动推导为int
 name = "Tom"  #自动推导为str
 pi = 3.14     #自动推导为float
@@ -186,3 +189,150 @@ print(f"及格学生: {passed}")
 #字典合并
 merged = {**person, **scores}
 print(f"合并后的字典: {merged}")
+
+#集合 - 三大特性
+
+#特性1: 自动去重
+my_set = {1, 2, 3, 4, 5, 1, 2, 3, 4, 5}
+print(f"去重后的集合: {my_set}")
+
+#特性2: 无序
+my_set = {1, 2, 3, 4, 5}
+# my_set[0]  # 错误！集合不支持索引
+
+#特性3: 不可变 - 元素类型必须是不可变的
+my_set = {1, 2, 3, 4, 5}
+# wrong_set = {[1, 2], [3, 4]}  # 错误！列表不能放入集合
+correct_set = {(1, 2), (3, 4)}  # 正确！元组可以
+print(f"正确的集合: {correct_set}")
+
+#集合 - 创建集合
+#方式1: 使用花括号
+my_set = {1, 2, 3, 4, 5}
+print(f"集合: {my_set}")
+
+#方式2: 使用set()函数
+my_set = set([1, 2, 3, 4, 5])
+print(f"集合: {my_set}")
+
+#方式3: 使用集合推导式
+my_set = {x for x in range(10) if x % 2 == 0}
+print(f"集合: {my_set}")
+
+#空集合
+empty_set = set()
+print(f"空集合: {empty_set}")
+
+#添加元素
+my_set = {1,2,3}
+print(f"添加前: {my_set}")
+#方式1: 使用add()方法
+my_set.add(4)
+print(f"添加后: {my_set}")
+#方式2: 使用update()方法 -- 添加多个元素
+my_set.update([4,5,6])
+print(f"添加后: {my_set}")
+
+#删除元素
+my_set = {1,2,3,4,5}
+print(f"删除前: {my_set}")
+#方式1: 使用remove()方法 -- 删除指定元素
+my_set.remove(4)
+print(f"删除后: {my_set}")
+#方式2: 使用discard()方法 -- 删除指定元素（如果元素不存在，不会报错）(更安全)
+my_set.discard(4)
+print(f"删除后: {my_set}")
+#方式3: 使用pop()方法 -- 删除并返回第一个元素
+my_set.pop()
+print(f"删除后: {my_set}")
+#清空集合
+my_set.clear()
+print(f"清空后: {my_set}")
+
+#集合 - 集合操作
+#并集
+set1 = {1,2,3}
+set2 = {3,4,5}
+print(f"并集: {set1 | set2}")
+#交集
+print(f"交集: {set1 & set2}")
+#差集
+print(f"差集: {set1 - set2}")
+#子集
+print(f"子集: {set1 < set2}")
+#超集
+print(f"超集: {set1 > set2}")
+#对称差集
+print(f"对称差集: {set1 ^ set2}")
+#集合长度
+print(f"集合长度: {len(set1)}")
+#集合是否为空
+print(f"集合是否为空: {not set1}")
+#集合是否为空
+print(f"集合是否为空: {not set1}")
+
+#列表去重
+numbers = [1,2,3,4,5,1,2,3,4,5]
+unique_numbers = list(set(numbers))
+print(f"去重后的列表: {unique_numbers}")
+
+#元组 
+#1.元组的核心特性
+# (不可变 有序 可以包含不同类型 可重复)
+#2.创建元组
+#创建元组 - 使用圆括号
+my_tuple = (1,2,3,4,5)
+#创建元组 - 使用tuple()函数
+my_tuple = tuple([1,2,3,4,5])
+#创建元组 - 空元组
+empty_tuple = ()
+#创建元组 - 单个元素
+single_tuple = (1,)
+#3.访问元组
+#切片
+print(my_tuple[1:3])
+#4.元组的常用操作
+#拼接
+print(my_tuple + (6,7,8))
+#重复
+print(my_tuple * 2)
+#长度
+print(len(my_tuple))
+#最大值
+print(max(my_tuple))
+#最小值
+print(min(my_tuple))
+#求和
+print(sum(my_tuple))
+#平均值
+print(sum(my_tuple) / len(my_tuple))
+#是否为空
+print(not my_tuple)
+#计数
+print(my_tuple.count(1))
+#查找索引
+print(my_tuple.index(1))
+#5.遍历元组
+for number in my_tuple:
+    print(f"number: {number}")
+#6.元组解包 
+#基本解包
+point = (1,2)
+x, y = point
+print(f"x: {x}, y: {y}")
+#部分解包
+a, b, *c = my_tuple
+print(f"a: {a}, b: {b}, c: {c}")
+#多变量交换
+a, b = 1, 2
+print(f"a: {a}, b: {b}")
+a, b = b, a
+print(f"a: {a}, b: {b}")
+#7.元组作为字典的键
+locations  = {
+    (0,0):"原点",
+    (1,0):"x轴",
+    (0,1):"y轴"
+}
+print(f"locations: {locations}")
+print(f"locations[(0,0)]: {locations[(0,0)]}")
